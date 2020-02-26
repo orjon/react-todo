@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import TodoList from './TodoList';
 import './App.css';
 
 function App() {
@@ -9,9 +9,7 @@ function App() {
         <header className="App-header">
           ToDo &amp; React
         </header>
-        <main className="App-main">
-          LIST BODY
-        </main>
+        <TodoList />
         <footer className="App-footer">
           footer
         </footer>

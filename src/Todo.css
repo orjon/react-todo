@@ -1,0 +1,15 @@
+.Todo{
+  border: 1px solid dodgerblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Todo-text {
+  border: 1px solid cyan;
+}
+
+.Todo-done {
+  border: 1px solid cyan;
+}
