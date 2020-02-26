@@ -8,8 +8,10 @@
 
 .Todo-text {
   border: 1px solid cyan;
+  text-align: left;
 }
 
 .Todo-done {
+  margin-left: 10px;
   border: 1px solid cyan;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
+import TodoNew from './TodoNew';
 import {v4 as uuid} from 'uuid';
 import './TodoList.css';
 
@@ -27,9 +28,13 @@ class TodoList extends Component {
 
   render(){
     return(
-      <div className='TodoList'>
-        {this.createList()}
+      <div>
+        <div className='TodoList'>
+          {this.createList()}
+        </div>
+        <TodoNew />
       </div>
+
     )
   }
 }
