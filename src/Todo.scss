@@ -9,6 +9,9 @@
 .Todo-text {
   border: 1px solid cyan;
   text-align: left;
+  &.done{
+    text-decoration: line-through;
+  }
 }
 
 .Todo-done {
