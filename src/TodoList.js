@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
-import TodoNew from './TodoNew';
 import {v4 as uuid} from 'uuid';
+import NewTodoForm from './NewTodoForm';
 import './TodoList.scss';
 
 class TodoList extends Component {
@@ -9,25 +9,20 @@ class TodoList extends Component {
     super(props);
     this.state={
       todos: [
-        {text:'Finish Todo App', done: false, id:uuid()},
-        {text:'Refactor App', done:false, id:uuid()},
-        {text:'Get a dog', done:false, id:uuid()},
-        {text:'Work remotely', done:true, id:uuid()},
-        {text:'Move somewhere hot', done:false, id:uuid()},
-        {text:'Debo aprender español', done:false, id:uuid()}
+        {task:'Finish Todo App', done: false, id:uuid()},
+        {task:'Refactor App', done:false, id:uuid()},
+        {task:'Get a dog', done:false, id:uuid()},
+        {task:'Work remotely', done:true, id:uuid()},
+        {task:'Move somewhere hot', done:false, id:uuid()},
+        {task:'Debo aprender español', done:false, id:uuid()}
       ]
     };
     this.markDone = this.markDone.bind(this);
-    this.addTodo = this.addTodo.bind(this);
+    this.create = this.create.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
-  createList(){
-    return(
-      this.state.todos.map(todo => (
-        <Todo key={todo.id} id={todo.id} text={todo.text} done={todo.done} markDone={this.markDone}/>
-      ))
-    )
-  }
+
 
   // removeBox(boxId){
   //   this.setState({
@@ -35,9 +30,13 @@ class TodoList extends Component {
   //   })
   // }
 
-  addTodo(todo){
-    console.log(todo)
-    let newTodo = {...todo, id: uuid()};
+  remove(idToRemove){
+    this.setState({
+      todos: this.state.todos.filter(t => t.id !== idToRemove)
+    })
+  }
+
+  create(newTodo){
     this.setState(state => (
       {todos: [...this.state.todos, newTodo]}
     ))
@@ -53,12 +52,15 @@ class TodoList extends Component {
   }
 
   render(){
+    const todos = this.state.todos.map(todo => {
+      return <Todo key={todo.id} id={todo.id} task={todo.task} done={todo.done} markDone={this.markDone} removeTodo={this.remove}/>
+    })
     return(
       <div>
-        <div className='TodoList'>
-          {this.createList()}
-        </div>
-        <TodoNew addTodo={this.addTodo}/>
+        <ul className='TodoList'>
+          {todos}
+        </ul>
+        <NewTodoForm createTodo={this.create}/>
       </div>
 
     )

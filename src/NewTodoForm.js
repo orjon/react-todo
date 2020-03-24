@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './TodoNew.scss';
+import {v4 as uuid} from 'uuid';
+import './NewTodoForm.scss';
 
-class TodoNew extends Component {
+class NewTodoForm extends Component {
   constructor(props){
     super(props);
     this.state={
-      text:'',
+      task:'',
       done: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,11 +21,10 @@ class TodoNew extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.addTodo(this.state)
+    this.props.createTodo({...this.state, id: uuid()})
     this.setState({
-      text:'',
-      done: false
-    });
+      task:''
+    }); 
   }
 
   render(){
@@ -32,13 +32,13 @@ class TodoNew extends Component {
       <div className='TodoNew'>
         <form onSubmit={this.handleSubmit}>
           <div className='row'>
-            {/* <label htmlFor='text'></label> */}
+            <label htmlFor='task'></label>
             <input
               placeholder='I need to...'
               type='text'
-              id='text'
-              name='text'
-              value={this.state.text}
+              id='task'
+              name='task'
+              value={this.state.task}
               onChange={this.handleChange}>
             </input>
             <button
@@ -55,4 +55,4 @@ class TodoNew extends Component {
   }
 }
 
-export default TodoNew;
+export default NewTodoForm;

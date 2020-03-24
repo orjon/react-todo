@@ -5,10 +5,15 @@ class Todo extends Component {
   constructor(props){
     super(props);
     this.handleMarkDone = this.handleMarkDone.bind(this);
+    this.handleRemove = this.handleRemove.bind(this)
   }
 
-  handleMarkDone(e){
+  handleMarkDone(){
     this.props.markDone(this.props.id)
+  }
+
+  handleRemove(){
+    this.props.removeTodo(this.props.id)
   }
   
 
@@ -16,14 +21,16 @@ class Todo extends Component {
   render(){
     return(
       <div className='Todo'>
-        <div
-          className={`Todo-text ${this.props.done? 'done' : ''}`}
+        <li
+          className={`Todo-task ${this.props.done? 'done' : ''}`}
           onClick={this.handleMarkDone}>
-            {this.props.text}
-          </div>
-        <div className='Todo-done'>
+            {this.props.task}
+        </li>
+        {/* <div className='Todo-done'>
           {this.props.done? 'Y' : 'N'}
-        </div>
+        </div> */}
+        <button className='Todo-edit'>Edit</button>
+        <button onClick={this.handleRemove} className='Todo-delete'>X</button>
       </div>
     )
   }

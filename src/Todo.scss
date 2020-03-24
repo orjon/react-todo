@@ -1,20 +1,38 @@
 .Todo{
+  list-style: none;
   border: 1px solid dodgerblue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-}
-
-.Todo-text {
-  border: 1px solid cyan;
-  text-align: left;
-  &.done{
-    text-decoration: line-through;
+  .Todo-task {
+    border: 1px solid cyan;
+    text-align: left;
+    flex: 1;
+    &.done{
+      text-decoration: line-through;
+    }
   }
+  
+  .Todo-done {
+    margin-left: 10px;
+    border: 1px solid cyan;
+  }
+  
+  .Toto-edit {
+    border: 1px solid cyan;
+  }
+  
+  .Todo-delete {
+    border: 1px solid cyan;
+  }
+  
+  button {
+    color: black;
+    width: 50px;
+    margin-left: 5px;
+  }
+
+
 }
 
-.Todo-done {
-  margin-left: 10px;
-  border: 1px solid cyan;
-}
