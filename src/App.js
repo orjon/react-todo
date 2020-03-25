@@ -7,11 +7,11 @@ function App() {
     <div className="App">
       <div className='App-body'>
         <header className="App-header">
-          ToDo &amp; React
+          React To-Do List
         </header>
         <TodoList />
         <footer className="App-footer">
-          footer
+          orjon.com
         </footer>
       </div>
     </div>

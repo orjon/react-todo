@@ -20,6 +20,7 @@ class TodoList extends Component {
     this.markDone = this.markDone.bind(this);
     this.create = this.create.bind(this);
     this.remove = this.remove.bind(this);
+    this.update = this.update.bind(this);
   }
 
 
@@ -42,6 +43,16 @@ class TodoList extends Component {
     ))
   }
 
+  update(idToUpdate, updatedTask){
+    const updatedTodos = this.state.todos.map(todo => {
+      if (todo.id === idToUpdate){
+        return {...todo, task: updatedTask}
+      }
+      return todo;
+    });
+    this.setState({todos: updatedTodos});
+  }
+
   markDone(todoId){
     let arrayLocation =this.state.todos.indexOf((this.state.todos.filter(todo => todo.id === todoId))[0]);
     console.log(arrayLocation);
@@ -53,7 +64,18 @@ class TodoList extends Component {
 
   render(){
     const todos = this.state.todos.map(todo => {
-      return <Todo key={todo.id} id={todo.id} task={todo.task} done={todo.done} markDone={this.markDone} removeTodo={this.remove}/>
+      return (
+        <Todo
+          key={todo.id}
+          id={todo.id}
+          task={todo.task}
+          done={todo.done}
+          markDone={this.markDone}
+          removeTodo={this.remove}
+          updateTodo={this.update}
+        />
+      )
+
     })
     return(
       <div>

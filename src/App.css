@@ -4,7 +4,7 @@
 
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: rgb(40, 44, 52);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  border: 1px solid cyan;
+  /* border: 1px solid cyan; */
   padding: 10px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .App-body {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 90%;
   width: 60%;
   display: flex;
@@ -37,12 +37,12 @@
 }
 
 .App-header {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin-bottom: 10px;
 }
 
 .App-main {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   height: 90%;
   width: 100%;
   display: flex;
@@ -52,8 +52,9 @@
 
 
 .App-footer {
-  border: 1px solid orange;
-  margin-top: 10px;
+  /* border: 1px solid orange; */
+  margin-top: 25px;
+  font-size: 10pt;
 }
 
 .App-link {
