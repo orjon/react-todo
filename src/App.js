@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className='App-body'>
         <header className="App-header">
-          React To-Do List
+          React To-Do App
         </header>
         <TodoList />
         <footer className="App-footer">

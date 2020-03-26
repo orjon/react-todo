@@ -9,7 +9,7 @@ class TodoList extends Component {
     super(props);
     this.state={
       todos: [
-        {task:'Finish Todo App', done: false, id:uuid()},
+        {task:'Finish React To-Do App', done: true, id:uuid()},
         {task:'Refactor App', done:false, id:uuid()},
         {task:'Get a dog', done:false, id:uuid()},
         {task:'Work remotely', done:true, id:uuid()},
@@ -53,13 +53,14 @@ class TodoList extends Component {
     this.setState({todos: updatedTodos});
   }
 
-  markDone(todoId){
-    let arrayLocation =this.state.todos.indexOf((this.state.todos.filter(todo => todo.id === todoId))[0]);
-    console.log(arrayLocation);
-    console.log(this.state.todos[arrayLocation]);
-    // this.setState({
-    //   todos[arrayLocation] {...this.state.todos[arrayLocation], done: true};
-    // })
+  markDone(idToMarkDone){
+    const updatedTodos = this.state.todos.map(todo => {
+      if (todo.id === idToMarkDone){
+        return {...todo, done: !todo.done}
+      }
+      return todo;
+    });
+    this.setState({todos: updatedTodos});
   }
 
   render(){

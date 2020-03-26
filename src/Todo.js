@@ -6,6 +6,7 @@ class Todo extends Component {
     super(props);
     this.state = {
       isEditing : false,
+      done: false,
       task: this.props.task
     }
     this.handleMarkDone = this.handleMarkDone.bind(this);
@@ -54,14 +55,14 @@ class Todo extends Component {
     } else {
       result = (
         <div className='Todo'>
+          <span className='Todo-doneBox' onClick={this.handleMarkDone}>
+            {this.props.done? '☒' : '☐'}
+          </span>
           <li
             className={`Todo-task ${this.props.done? 'done' : ''}`}
             onClick={this.handleMarkDone}>
               {this.props.task}
           </li>
-          {/* <div className='Todo-done'>
-            {this.props.done? 'Y' : 'N'}
-          </div> */}
           <button onClick={this.toggleForm} className='Todo-edit'>Edit</button>
           <button onClick={this.handleRemove} className='Todo-delete'>X</button>
         </div>

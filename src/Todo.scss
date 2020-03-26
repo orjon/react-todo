@@ -14,14 +14,14 @@
       text-decoration: line-through;
     }
   }
-  
-  .Todo-done {
-    // border: 1px solid cyan;
+
+  .Todo-doneBox {
+    font-size: calc(20px + 2vmin)
   }
-  
+
   .Todo-edit {
     // border: 1px solid orange;
-    background-color: rgba(255, 165, 0, 0.25);
+    background-color: rgba(255, 165, 0, 0.5);
     &:hover{
       background-color: rgba(255, 165, 0, 1);
     }
@@ -29,7 +29,7 @@
   
   .Todo-delete {
     // border: 1px solid red;
-    background-color: rgba(255, 0, 0,0.25);
+    background-color: rgba(255, 0, 0,0.5);
     &:hover{
       background-color: rgba(255, 0, 0,1);
     }
@@ -37,13 +37,11 @@
 
   .Todo-save {
     // border: 1px solid rgb(0, 128, 0);
-    background-color: rgba(0, 128, 0, 0.25);
+    background-color: rgba(0, 128, 0, 0.5);
     &:hover{
       background-color: rgb(0, 128, 0);
     }
   }
-
-
 
   input{
     width: 100%;
